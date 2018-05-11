@@ -8,6 +8,8 @@ package com.mavenproject.EJB;
 import com.mavenproject.modelo.Usuario;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -37,13 +39,17 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
         Query query = em.createQuery(consulta1);
         query.setParameter(1, user.getNick());
         List<Usuario> listaUsuarios = query.getResultList();
-           
+           System.out.println("Está haciendo la comprobación");
             if(listaUsuarios.isEmpty()){       
-               return false;
+                    System.out.println("Está todo ok");
+                return false;
+         
             }
             else{
+                 System.out.println("Está todo mal");
+                
                 return true;   
             }  
     }
-    
+
 }

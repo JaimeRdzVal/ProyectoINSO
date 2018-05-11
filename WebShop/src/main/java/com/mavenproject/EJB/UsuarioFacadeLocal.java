@@ -32,4 +32,5 @@ public interface UsuarioFacadeLocal {
     
     public boolean nickExistente(Usuario user);
     
+
 }

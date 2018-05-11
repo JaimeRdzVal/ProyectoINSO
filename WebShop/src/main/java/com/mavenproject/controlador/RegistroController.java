@@ -14,6 +14,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import org.primefaces.context.RequestContext;
 
 /**
  *
@@ -41,12 +42,14 @@ public class RegistroController implements Serializable {
             nickExistente = usuarioEJB.nickExistente(this.usuario);
             if(nickExistente == false){
                 this.usuario.setTipo("user"); 
+                usuarioEJB.create(this.usuario);
             }else{
+                RequestContext.getCurrentInstance().showMessageInDialog(new FacesMessage(FacesMessage.SEVERITY_INFO, "Nombre de usuario repetido", "Por favor, elija un nick diferente"));
                 
                 //mensaje por pantalla
             }
            
-            usuarioEJB.create(this.usuario);
+            
            // FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Usuario registrado con éxito"));
         }catch(Exception e){}
     }
