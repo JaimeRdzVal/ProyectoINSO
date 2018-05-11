@@ -16,26 +16,26 @@
                     <h:panelGrid columns="2" id="gridDatosPersonales">
                        
                         <p:outputLabel value="Nick" for="txtnick"/>
-                        <p:inputText value="#{Registro.usuario.nick}" id="txtnick" required="true" requiredMessage="Valor Necesario" value = "" />
+                        <p:inputText value="#{registroController.usuario.nick}" id="txtnick" required="true" requiredMessage="Valor Necesario"  />
                         
-                        <p:outputLabel value="Contraseña" for="txtcontraseña"/>
-                        <p:inputText value="#{Resgistro.usuario.contraseña}" id="txtcontraseña" required="true" requiredMessage="Valor Necesario" value = "" />
+                        <p:outputLabel value="Contraseña" for="txtpassword"/>
+                        <p:inputText value="#{registroController.usuario.password}" id="txtpassword" required="true" requiredMessage="Valor Necesario" />
                         
                         <p:outputLabel value="Nombre" for="txtnombre"/>
-                        <p:inputText value="#{Resgistro.usuario.nombre}" id="txtnombre" required="true" requiredMessage="Valor Necesario" value = ""/>
+                        <p:inputText value="#{registroController.usuario.nombre}" id="txtnombre" required="true" requiredMessage="Valor Necesario"/>
 
                         <p:outputLabel value="Apellido" for="txtapellido"/>
-                        <p:inputText value="#{Resgistro.usuario.apellido}" id="txtapellido1" required="true" requiredMessage="Valor Necesario" value = "" />
+                        <p:inputText value="#{registroController.usuario.apellido}" id="txtapellido" required="true" requiredMessage="Valor Necesario"  />
                         
                         <p:outputLabel value="Email" for="txtemail"/>
-                        <p:inputText value="#{Resgistro.usuario.email}" id="txtemail" required="true" requiredMessage="Valor Necesario" value = "" />
+                        <p:inputText value="#{registroController.usuario.email}" id="txtemail" required="true" requiredMessage="Valor Necesario"  />
                         
 
                         <p:outputLabel value="Paypal" for="txtpaypal"/>
-                        <p:inputText value="#{Resgistro.usuario.paypal}" id="txtpaypal" value = "" />
-                        
-                        
+                        <p:inputText value="#{registroController.usuario.paypal}" id="txtpaypal"  />
+      
                     </h:panelGrid>
+                    <p:commandButton value="Registrar" update="gridDatosPersonales" action="#{registroController.registrar()}"/>
 
                 </h:form>  
              </ui:define>    

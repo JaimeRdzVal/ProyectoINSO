@@ -18,14 +18,17 @@ import javax.persistence.Table;
  *
  * @author Jaime
  */
-@Entity 
+@Entity
 @Table(name="usuario")
 public class Usuario implements Serializable{
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String Nick;
-    
+    private int idUsuario;
+
+    @Column(name = "Nick")
+    private String nick;
+
     @Column(name = "Nombre")
     private String nombre;
     @Column(name = "Apellido")
@@ -42,14 +45,14 @@ public class Usuario implements Serializable{
     private int nvaloraciones;
     //Esto es el enum, mirar si está bien-
     @Column(name = "Tipo")
-    private String Tipo;
+    private String tipo;
 
     public String getNick() {
-        return Nick;
+        return nick;
     }
 
-    public void setNick(String Nick) {
-        this.Nick = Nick;
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 
     public String getNombre() {
@@ -109,42 +112,52 @@ public class Usuario implements Serializable{
     }
 
     public String getTipo() {
-        return Tipo;
+        return tipo;
     }
 
     public void setTipo(String Tipo) {
-        this.Tipo = Tipo;
+        this.tipo = Tipo;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.Nick);
-        return hash;
+    public int getIdUsuario() {
+	return idUsuario;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Usuario other = (Usuario) obj;
-        if (!Objects.equals(this.Nick, other.Nick)) {
-            return false;
-        }
-        return true;
+    public void setIdUsuario(int idUsuario) {
+	this.idUsuario = idUsuario;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "Nick=" + Nick + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", password=" + password + ", paypal=" + paypal + ", valoracion=" + valoracion + ", nvaloraciones=" + nvaloraciones + ", Tipo=" + Tipo + '}';
+	return "Usuario{" + "idUsuario=" + idUsuario + ", nick=" + nick + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", password=" + password + ", paypal=" + paypal + ", valoracion=" + valoracion + ", nvaloraciones=" + nvaloraciones + ", tipo=" + tipo + '}';
     }
+
+    @Override
+    public int hashCode() {
+	int hash = 5;
+	hash = 23 * hash + this.idUsuario;
+	return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj) {
+	    return true;
+	}
+	if (obj == null) {
+	    return false;
+	}
+	if (getClass() != obj.getClass()) {
+	    return false;
+	}
+	final Usuario other = (Usuario) obj;
+	if (this.idUsuario != other.idUsuario) {
+	    return false;
+	}
+	return true;
+    }
+
     
+
 
 }

@@ -34,9 +34,20 @@ public class RegistroController implements Serializable {
 
     }
     public void registrar(){
+        boolean nickExistente;
+        
+        
         try{
+            nickExistente = usuarioEJB.nickExistente(this.usuario);
+            if(nickExistente == false){
+                this.usuario.setTipo("user"); 
+            }else{
+                
+                //mensaje por pantalla
+            }
+           
             usuarioEJB.create(this.usuario);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Usuario registrado con éxito"));
+           // FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "Usuario registrado con éxito"));
         }catch(Exception e){}
     }
     
