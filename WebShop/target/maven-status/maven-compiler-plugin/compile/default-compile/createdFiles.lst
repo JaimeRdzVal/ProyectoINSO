@@ -1,0 +1,6 @@
+com\mavenproject\EJB\UsuarioFacadeLocal.class
+com\mavenproject\EJB\UsuarioFacade.class
+com\mavenproject\EJB\AbstractFacade.class
+com\mavenproject\controlador\RegistroController.class
+com\mavenproject\modelo\Usuario.class
+com\mavenproject\modelo\Usuario_.class
